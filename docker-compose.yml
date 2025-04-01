@@ -1,0 +1,33 @@
+version: '3.8'
+name: wildberries_parser
+
+services:
+  app:
+    build: .
+    container_name: wildberries_parser_app
+    depends_on:
+      - redis
+    env_file:
+      - .env
+    volumes:
+      - ./logs:/app/logs
+    command: python main.py --start
+    networks:
+      - parser_network
+
+  redis:
+    image: redis:7-alpine
+    container_name: wildberries_parser_redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - parser_network
+
+volumes:
+  redis_data:
+
+networks:
+  parser_network:
+    driver: bridge
