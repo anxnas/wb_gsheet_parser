@@ -17,7 +17,7 @@
 
 ## Требования
 
-- Python 3.8+
+- Python 3.9+
 - Redis
 - Google аккаунт и настроенный доступ к Google Sheets API
 
