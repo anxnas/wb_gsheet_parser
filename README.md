@@ -47,6 +47,7 @@ pip install -r requirements.txt
 
 ```commandline
 playwright install
+playwright install-deps # Установите зависимости при необходимости
 ```
 
 5. Настроить переменные окружения:
